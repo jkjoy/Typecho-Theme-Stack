@@ -12,52 +12,38 @@ function generate_toc($content) {
                 </svg>
             </div>
             <h2 class="widget-title section-title">文章目录</h2>
-            <div class="widget--toc">
-                <nav id="TableOfContents">
-                    ';
-
+            <div class="widget--toc"><nav id="TableOfContents">';
     // 初始化变量
     $has_toc = false;
-
     // 使用正则表达式提取标题
     if (preg_match_all('/<h([1-6])>(.*?)<\/h\1>/', $content, $matches, PREG_SET_ORDER)) {
         $current_level = 0;
+        $last_level = 0;
         foreach ($matches as $match) {
             $level = intval($match[1]);
             $title = strip_tags($match[2]);
             $id = $title; // 保留标题原有格式
-
-            // 根据标题层级生成嵌套列表
             if ($level > $current_level) {
-                $toc .= '<ol>';
+                $toc.= '<ol>';  
             } elseif ($level < $current_level) {
-                $toc .= str_repeat('</ol>', $current_level - $level);
+                    $toc.= str_repeat('</ol>', $current_level - $level);
             }
-
-            $toc .= '<li><a href="#' . htmlspecialchars($id) . '">' . htmlspecialchars($title) . '</a>';
-
-            // 检查下一个标题是否是下一级，如果是则在这里闭合 li，以便包含子 ol
-            if ($level >= $current_level) {
-                $toc .= '</li>';
+            $toc.= '<li><a href="#'. htmlspecialchars($id). '">'. htmlspecialchars($title). '</a>';
+            if ($level <= $current_level) {
+                if ($current_level > $last_level) {
+                $toc.= '</li>';
             }
-
+            }
+            $last_level = $current_level;
             $current_level = $level;
             $has_toc = true;
         }
-
         // 关闭所有打开的列表标签
         if ($current_level > 0) {
-            $toc .= str_repeat('</ol>', $current_level);
+            $toc.= str_repeat('</ol>', $current_level );
         }
     }
-
-    $toc .= '  
-                </nav>
-            </div>
-        </section>
-    </aside>';
-
-    // 如果没有 TOC 内容，则返回空字符串
-    return $has_toc ? $toc : '';
+    $toc.= '</nav></div></section></aside>';
+    return $has_toc? $toc : '';
 }
 ?>
