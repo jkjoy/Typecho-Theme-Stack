@@ -1739,7 +1739,7 @@ footer.site-footer .powerby a {
 }
 
 
-section nav a {
+.pagination  a {
   padding: 16px 32px;
   display: inline-flex;
   color: var(--card-text-color-secondary)
