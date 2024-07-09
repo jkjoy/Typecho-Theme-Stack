@@ -42,7 +42,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
         $stat = Typecho_Widget::widget('Widget_Stat');
         Typecho_Widget::widget('Widget_Contents_Post_Recent', 'pageSize=' . $stat->publishedPostsNum)->to($archives);
         $year = 0; 
-        $output = ' '; // Start archives container      
+        $output = '<div class="archives-group"> '; // Start archives container      
         while ($archives->next()) {
             $year_tmp = date('Y', $archives->created);   
             if ($year != $year_tmp) {
@@ -50,11 +50,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                     $output .= '</div>'; // 结束上一个年份的月份列表和包裹的div
                 }
                 $year = $year_tmp; 
-                $output .= '<div class="archives-group">
-        <h2 class="archives-date section-title">' . $year . '</h2>'; // 开始新的年份div
+                $output .= '
+        <h2 class="archives-date section-title"><a href="#' . $year . '">' . $year . '</a></h2><div class="article-list--compact">'; // 开始新的年份div
             }       
             // 输出文章项
-            $output .= ' <div class="article-list--compact">';
             $output .= '<article>
             <a href="' . $archives->permalink . '"> 
             <div class="article-details">
@@ -62,13 +61,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
             <footer class="article-time">
                 <time>'. date('m月d日', $archives->created) . '</time>
             </footer>
+              <div class="article-image">
+            </div>
             </div>
             </a>
             </article>
             ';
-            $output .= '</div>';
         }
-        $output .= ' '; // End archives container
+        $output .= '</div> '; // End archives container
         echo $output;
     ?>
 </div>
