@@ -13,7 +13,11 @@
             'author'   => _t('%s 发布的文章')
         ], '', ' - '); ?><?php $this->options->title(); ?></title>
 <link rel='canonical' href='<?php $this->options->siteUrl(); ?>'>
-<link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>">
+<?php if ($this->options->showmod):?>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/mod.css');?>">
+<?php else:?>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css');?>">
+<?php endif;?>
 <meta property='og:title' content="<?php $this->options->siteUrl(); ?>">
 <meta property='og:description' content="<?php $this->options->description() ?>.">
 <meta property='og:url' content='<?php $this->options->siteUrl(); ?>'>

@@ -17,6 +17,10 @@ function themeConfig($form) {
     array('0'=> _t('否'), '1'=> _t('是')),
     '0', _t('是否在侧边栏显示按日期归档'), _t('选择“是”将展示。'));
     $form->addInput($showgd);
+    $showmod = new Typecho_Widget_Helper_Form_Element_Radio('showmod',
+    array('0'=> _t('否'), '1'=> _t('是')),
+    '0', _t('是否使用魔改风格'), _t('选择“是”将展示。'));
+    $form->addInput($showmod);
     $instagramurl = new Typecho_Widget_Helper_Form_Element_Text('instagramurl', NULL, NULL, _t('Instagram'), _t('会在个人信息显示'));
     $form->addInput($instagramurl);
     $telegramurl = new Typecho_Widget_Helper_Form_Element_Text('telegramurl', NULL, NULL, _t('电报'), _t('会在个人信息显示'));
@@ -27,8 +31,6 @@ function themeConfig($form) {
     $form->addInput($twitterurl);
     $mastodonurl = new Typecho_Widget_Helper_Form_Element_Text('mastodonurl', NULL, NULL, _t('mastodon'), _t('会在个人信息显示'));
     $form->addInput($mastodonurl);
-    $sitemapurl = new Typecho_Widget_Helper_Form_Element_Text('sitemapurl', NULL, NULL, _t('sitemap'), _t('会在页脚显示'));
-    $form->addInput($sitemapurl);
     $cnavatar = new Typecho_Widget_Helper_Form_Element_Text('cnavatar', NULL, 'https://cravatar.cn/avatar/', _t('Gravatar镜像'), _t('默认https://cravatar.cn/avatar/,建议保持默认'));
     $form->addInput($cnavatar);
     $imgurl = new Typecho_Widget_Helper_Form_Element_Text('imgurl', NULL, NULL, _t('分类图片目录'), _t('在目录下放入对应分类mid的jpg图片'));

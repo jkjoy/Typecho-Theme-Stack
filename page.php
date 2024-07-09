@@ -12,7 +12,6 @@
             </a>
         </div>
             <?php else: ?> 
-        
         <?php endif; ?>    
     <div class="article-details">
     <header class="article-category">
@@ -90,6 +89,4 @@ if ($lastModifiedTime) {
     </section>
 </footer>
 </article>
- 
-
 <?php $this->need('footer.php'); ?>

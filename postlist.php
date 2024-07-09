@@ -58,8 +58,7 @@
 </div>
 </header>
 </article>
-                                <?php else: ?> 
-                                  
+<?php else: ?>         
 <article class="">
     <header class="article-header">
     <div class="article-details">
