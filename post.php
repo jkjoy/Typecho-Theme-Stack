@@ -100,21 +100,11 @@ if ($lastModifiedTime) {
     </section>
 </footer>
 </article>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
-<script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"></script>
+            <script src="<?php $this->options->themeUrl('js/photoswipe.min.js'); ?>"></script>
+            <script src="<?php $this->options->themeUrl('js/photoswipe-ui-default.min.js'); ?>"></script>
+            <link rel="stylesheet" href="<?php $this->options->themeUrl('css/default-skin.min.css'); ?>" >
+            <link rel="stylesheet" href="<?php $this->options->themeUrl('css/photoswipe.min.css'); ?>">
+            <script src="<?php $this->options->themeUrl('js/vibrant.min.js'); ?>"></script>
 <div class="disqus-container">
 <?php $this->options->twikoo() ?>
 </div>
