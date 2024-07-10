@@ -100,11 +100,6 @@ if ($lastModifiedTime) {
     </section>
 </footer>
 </article>
-            <script src="<?php $this->options->themeUrl('js/photoswipe.min.js'); ?>"></script>
-            <script src="<?php $this->options->themeUrl('js/photoswipe-ui-default.min.js'); ?>"></script>
-            <link rel="stylesheet" href="<?php $this->options->themeUrl('css/default-skin.min.css'); ?>" >
-            <link rel="stylesheet" href="<?php $this->options->themeUrl('css/photoswipe.min.css'); ?>">
-            <script src="<?php $this->options->themeUrl('js/vibrant.min.js'); ?>"></script>
 <div class="disqus-container">
 <?php $this->options->twikoo() ?>
 </div>
