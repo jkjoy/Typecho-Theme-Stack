@@ -2,11 +2,12 @@
 <footer class="site-footer">
     <section class="copyright">
         &copy; 
-            2020 - 2024     ·  <?php $this->options->title(); ?>
+            2020 - <?php echo date("Y"); ?>     ·  <?php $this->options->title(); ?>
     </section>
     <section class="powerby">
         Powered by <a href="https://typecho.org/" target="_blank" rel="noopener">Typecho</a> <br />
         Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Made with <a href="https://imsun.org/" target="_blank">Sun</a>
     </section>
     <?php $this->options->tongji() ?>
 </footer>

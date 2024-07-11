@@ -4,7 +4,7 @@
  *
  * @package Typecho stack Theme
  * @author Sun
- * @version 1.0
+ * @version 1.0.2
  * @link http://imsun.org
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

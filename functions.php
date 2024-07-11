@@ -11,6 +11,8 @@ function themeConfig($form) {
     $form->addInput($linksurl);
     $abouturl = new Typecho_Widget_Helper_Form_Element_Text('abouturl', NULL, NULL, _t('关于页面地址'), _t('关于页面地址'));
     $form->addInput($abouturl);
+    $addsns = new Typecho_Widget_Helper_Form_Element_Textarea('addsns', NULL, NULL, _t('自定义联系方式'), _t('头像下方的联系方式,具体使用查看使用文档'));
+    $form->addInput($addsns);
     $addmenu = new Typecho_Widget_Helper_Form_Element_Textarea('addmenu', NULL, NULL, _t('自定义菜单'), _t('具体查看使用文档'));
     $form->addInput($addmenu);
     $showgd = new Typecho_Widget_Helper_Form_Element_Radio('showgd',
@@ -19,7 +21,7 @@ function themeConfig($form) {
     $form->addInput($showgd);
     $showmod = new Typecho_Widget_Helper_Form_Element_Radio('showmod',
     array('0'=> _t('否'), '1'=> _t('是')),
-    '0', _t('是否使用魔改风格'), _t('选择“是”将展示。'));
+    '0', _t('是否使用MOD风格'), _t('选择“是”将展示。'));
     $form->addInput($showmod);
     $instagramurl = new Typecho_Widget_Helper_Form_Element_Text('instagramurl', NULL, NULL, _t('Instagram'), _t('会在个人信息显示'));
     $form->addInput($instagramurl);
