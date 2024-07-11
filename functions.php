@@ -70,15 +70,14 @@ function img_postthumb($cid) {
         return "";  // 没有匹配到图片URL，返回空字符串
     }
 }
-//文章目录功能-给文章内标题加上id
-function addHeaderLinks($text)
-{
+//文章目录功能-给文章内标题加上id+超链接新窗口打开
+function addHeaderLinks($text) {
     return preg_replace_callback('/<h([1-6])>(.*?)<\/h\1>/', function ($matches) {
         $level = $matches[1];
         $title = $matches[2];
         $id = htmlspecialchars(strip_tags($title), ENT_QUOTES, 'UTF-8');
         return sprintf('<h%s id="%s"><a href="#%s" title="%s">%s</a></h%s>', $level, $id, $id, $title, $title, $level);
-    }, $text);
+    }, preg_replace('/<a(?! href="#)(.*?)>/', '<a$1 target="_blank">', $text));
 }
 //文章最后修改时间
 function get_last_modified_time($postId) {
