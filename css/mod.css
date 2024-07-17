@@ -1754,7 +1754,10 @@ footer.site-footer .powerby a {
     color: var(--card-text-color-main)
 }
 
-
+.hidden {
+    display: none !important;
+  }
+  
 @media(min-width:768px) {
     .sidebar.sticky {
         position: sticky
