@@ -3,9 +3,9 @@
  * stack theme for Typecho
  *
  * @package Typecho stack Theme
- * @author Sun
- * @version 1.0.2
- * @link http://imsun.org
+ * @author 老孙
+ * @version 1.0.3
+ * @link http://www.imsun.org
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
@@ -14,5 +14,4 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <?php $this->need('header.php'); ?>
 <?php $this->need('sidebar.php'); ?>
 <?php $this->need('postlist.php'); ?>
-
 <?php $this->need('footer.php'); ?>

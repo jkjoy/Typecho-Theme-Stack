@@ -44,12 +44,22 @@ function themeConfig($form) {
     $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('Footer代码'), _t('在footer中插入代码支持HTML'));
     $form->addInput($tongji);
 } 
+
+// 自定义字段
+function themeFields($layout) {
+    $summary= new Typecho_Widget_Helper_Form_Element_Textarea('summary', NULL, NULL, _t('文章摘要'), _t('自定义摘要'));
+    $layout->addItem($summary);
+    $cover= new Typecho_Widget_Helper_Form_Element_Text('cover', NULL, NULL, _t('文章封面'), _t('自定义文章封面'));
+    $layout->addItem($cover);
+}
+
 // 获取Typecho的选项
 $options = Typecho_Widget::widget('Widget_Options');
 // 检查cnavatar是否已设置，如果未设置或为空，则使用默认的Gravatar前缀
 $gravatarPrefix = empty($options->cnavatar) ? 'https://cravatar.cn/avatar/' : $options->cnavatar;
 // 定义全局常量__TYPECHO_GRAVATAR_PREFIX__，用于存储Gravatar前缀
 define('__TYPECHO_GRAVATAR_PREFIX__', $gravatarPrefix);
+
 //获取头图
 function img_postthumb($cid) {
     $db = Typecho_Db::get();
@@ -103,6 +113,7 @@ function get_last_modified_time($postId) {
         return '';
     }
 }
+
 //阅读时间
 function getReadingTime($text, $wordsPerMinute = 500) {
     // 移除HTML标签

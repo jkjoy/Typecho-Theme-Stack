@@ -11,13 +11,13 @@
     </section>
     <?php $this->options->tongji() ?>
 </footer>
-            </main>
-        </div>
+</main>
+</div>
 <script type="text/javascript" src="<?php $this->options->themeUrl('js/main.js'); ?>" defer></script>
 <script src="<?php $this->options->themeUrl('js/photoswipe.min.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('js/photoswipe-ui-default.min.js'); ?>"></script>
 <link rel="stylesheet" href="<?php $this->options->themeUrl('css/default-skin.min.css'); ?>" >
 <link rel="stylesheet" href="<?php $this->options->themeUrl('css/photoswipe.min.css'); ?>">
 <script src="<?php $this->options->themeUrl('js/vibrant.min.js'); ?>"></script>
-    </body>
+</body>
 </html>
