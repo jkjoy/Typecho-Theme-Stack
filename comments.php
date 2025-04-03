@@ -170,11 +170,9 @@ function threadedComments($comments, $options) {
   cursor: pointer;
   line-height: 1.4
 }
-
 .comment-form label .required {
   color: red
 }
-
 .comment-form input,
 .comment-form textarea {
   width: 100%;
@@ -196,33 +194,27 @@ function threadedComments($comments, $options) {
   border-radius: 5px;
   width: auto
 }
-
 .comment-form p {
   margin-bottom: 15px
 }
-
 .comment-form p:last-of-type {
   margin-bottom: 0
 }
-
 .comment-form .comment-notes,
 .comment-form .logged-in-as {
   font-size: 12px;
 }
-
 .comment-reply-title {
   font-weight: 700;
   font-size: 18px;
   display: flex;
   align-items: center
 }
-
 .comment-reply-title small {
   margin-left: auto;
   font-weight: 400;
   font-size: 14px
 }
-
 .commentlist {
   border-top: 1px solid var(--theme);
   list-style: none;
@@ -232,13 +224,11 @@ function threadedComments($comments, $options) {
 .commentlist .comment {
   padding: 0 0
 }
-
 .commentlist .comment-respond {
   margin-top: 20px;
   padding: 20px;
   border-radius: 5px
 }
-
 @keyframes comment--fresh {
   0% {
       background-color: #fff
@@ -248,134 +238,105 @@ function threadedComments($comments, $options) {
       background-color: #fffee0
   }
 }
-
 .comment:last-child>.comment-body {
   border-bottom: 0
 }
-
 .comment.parent {
   border-bottom: 1px solid var(--theme)
 }
-
 .comment.parent:last-child {
   border-bottom: 0
 }
-
 .comment-body {
   padding: 25px 0
 }
-
 .comment-body__fresh {
   animation: comment--fresh 1.5s ease-in-out infinite alternate;
   border-radius: 5px
 }
-
 .comment-body .avatar {
   transition: .5s box-shadow
 }
-
 .comment-body:hover .avatar {
   box-shadow: 0 0 3px 0
 }
-
 .comment--avatar {
   flex: none;
   margin-right: 10px;
   display: flex
 }
-
 .comment--author {
   flex: auto;
   display: flex;
   align-items: center
 }
-
 .comment--author .comment-reply-link {
   margin-left: auto
 }
-
 .comment--author .comment-reply-link svg {
   width: 15px;
   height: 15px
 }
-
 .comment--author a:hover {
   text-decoration: underline
 }
-
 .comment--meta {
   display: flex;
   align-items: center;
   flex: auto
 }
-
 .comment-meta {
   display: flex;
   align-items: center
 }
-
 .comment-meta .avatar {
   border-radius: 100%
 }
-
-
 div.cancel-comment-reply.cancel-comment-reply-link {
   text-align: right;
 }
-
 .comment-content {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
   white-space: normal !important;
 }
-
 .comment-content a {
   text-decoration: underline
 }
-
 .children {
   margin-left: 0;
   padding-bottom: 10px
 }
-
 .children .avatar {
   width: 32px;
   height: 32px
 }
-
 .children .comment-body {
   border-bottom: 0;
   padding: 15px 0
 }
-
 .children .comment-content {
   font-size: 14px
 }
-
 .parent>.children {
   margin-left: 50px
 }
-
 .comment-meta {
   margin-bottom: 10px;
   font-size: 14px;
   display: flex;
   align-items: center
 }
-
 .comment-meta .comment-metadata {
   margin-left: auto
 }
-
 .comment-reply-link {
   font-size: 12px
 }
-
 .no--comment {
   text-align: center;
   padding: 30px 0
 }
-
 .comments--title {
   margin-top: 30px;
   font-size: 18px;
@@ -384,7 +345,6 @@ div.cancel-comment-reply.cancel-comment-reply-link {
   display: flex;
   align-items: center
 }
-
 .comments--title svg {
   width: 24px;
   height: 24px;
@@ -392,22 +352,18 @@ div.cancel-comment-reply.cancel-comment-reply-link {
   position: relative;
   transform: translate3d(0, 1px, 0);
 }
-
 .comment-respond {
   padding-top: 30px
 }
-
 .comment-form-cookies-consent #wp-comment-cookies-consent {
   display: none
 }
-
 .comment-form-cookies-consent label {
   font-size: 14px;
   display: flex;
   align-items: center;
   position: relative
 }
-
 .comment-form-cookies-consent label::before {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, .15);
@@ -424,7 +380,6 @@ div.cancel-comment-reply.cancel-comment-reply-link {
   margin-left: 4px;
   margin-right: 4px
 }
-
 .comment-form-cookies-consent input:checked+label::after {
   border-radius: 100%;
   content: "";
@@ -440,13 +395,11 @@ ol.comment-list {
   list-style-type: none;
   padding-left: 0; /* 取消左侧的默认填充 */
 }
-
 /* 去除无序列表（<ul>）的列表号 */
 ul.comment-list {
   list-style-type: none;
   padding-left: 0; /* 取消左侧的默认填充 */
 }
-
 /* 适用于所有嵌套的评论列表 */
 ol.comment-list li, ul.comment-list li {
   list-style-type: none;

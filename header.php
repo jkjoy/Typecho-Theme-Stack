@@ -54,25 +54,22 @@
                 <span>首页</span>
             </a>
         </li>
-<?php if($this->options->archiveurl): ?>
+    <?php if($this->options->archiveurl): ?>
     <li ><a href="<?php $this->options->archiveurl() ?>">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><line x1="10" y1="12" x2="14" y2="12" /></svg>
     <span>归档</span></a></li>
-<?php endif; ?>
-<?php if($this->options->linksurl): ?>
+    <?php endif; ?>
+    <?php if($this->options->linksurl): ?>
     <li ><a href="<?php $this->options->linksurl() ?>">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" /><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" /></svg>
     <span>链接</span></a></li>
-<?php endif; ?> 
-<?php if($this->options->abouturl): ?>
+    <?php endif; ?> 
+    <?php if($this->options->abouturl): ?>
     <li ><a href="<?php $this->options->abouturl() ?>">
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="7" r="4" />
-  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-</svg> <span>关于</span></a></li>
-<?php endif; ?> 
-<?php $this->options->addmenu() ?>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg> 
+    <span>关于</span></a></li>
+    <?php endif; ?> 
+    <?php $this->options->addmenu() ?>
         <li class="menu-bottom-section">
             <ol class="menu">
                 <li id="dark-mode-toggle">

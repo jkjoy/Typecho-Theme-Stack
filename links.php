@@ -39,7 +39,6 @@ Links_Plugin::output('<article>
 </a>
 </article>
 ');
-        ?>
- 
-    </div>
+?>
+</div>
 <?php $this->need('footer.php'); ?>
