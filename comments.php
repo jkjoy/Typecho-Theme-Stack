@@ -127,25 +127,25 @@ function threadedComments($comments, $options) {
     <?php endwhile; ?>
 </ol>
 <style>
-      .pagination_page{
+.pagination_page{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: var(--margin);
-    gap: 0.5rem;
+    margin-top: 10px;
+    gap: 15px;
 }
 .pagination_page li.active a {
-    background: var(--theme);
+    background: var(--body-background);
     color: #fff;
     font-weight: 500;
 }
 .pagination_page a{
     display: flex;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    width: 1.75rem;
-    height: 1.75rem;
-    background: var(--background);
+    padding: 9px;
+    font-size: 20px;
+    width: 30px;
+    height: 35px;
+    background: var(--body-background);
     border-radius: 50%;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -165,7 +165,7 @@ function threadedComments($comments, $options) {
 }
 .comment-form label {
   display: block;
-  margin-bottom: .5rem;
+  margin-bottom: 10px;
   font-size: 14px;
   cursor: pointer;
   line-height: 1.4
@@ -213,7 +213,7 @@ function threadedComments($comments, $options) {
 .comment-reply-title small {
   margin-left: auto;
   font-weight: 400;
-  font-size: 14px
+  font-size: 18px
 }
 .commentlist {
   border-top: 1px solid var(--theme);
