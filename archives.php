@@ -34,7 +34,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
         </a>
     </article>
     <?php endwhile; ?>
-
             </div>
         </div>    
     </header>

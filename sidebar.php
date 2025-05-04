@@ -1,5 +1,9 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+$sidebarBlock = !empty($this->options->sidebarBlock) ? (array)$this->options->sidebarBlock : array();
+?>
 <aside class="sidebar right-sidebar sticky">   
+<?php if (in_array('ShowSearch', $sidebarBlock)): ?>
     <form id="search" method="post" action="./" role="search" class="search-form widget">
         <label>Search</label>
 		<input type="text" name="s" class="search-field text" placeholder="站内搜索" required/>
@@ -9,7 +13,8 @@
             </svg>
         </button>
 	</form>  
-    <?php if ($this->options->showgd): ?>
+    <?php endif; ?> 
+<?php if (in_array('ShowGD', $sidebarBlock)): ?>
     <!-- 归档开始 -->
     <section class="widget archives">
         <div class="widget-icon">
@@ -26,7 +31,8 @@
         </div> 
         '); ?>
     </section>
-    <?php endif; ?>   
+    <?php endif; ?> 
+    <?php if (in_array('ShowFL', $sidebarBlock)): ?>  
     <!-- 分类开始 -->
     <section class="widget tagCloud">
         <div class="widget-icon">
@@ -37,6 +43,8 @@
             <?php $this->widget('Widget_Metas_Category_List')->parse('<a href="{permalink}" class="font_size_1"> {name}</a> '); ?>
         </div>
     </section>
+    <?php endif; ?>
+    <?php if (in_array('ShowTags', $sidebarBlock)): ?>
     <!-- 标签开始 -->
     <section class="widget tagCloud">
         <div class="widget-icon">
@@ -54,4 +62,5 @@
                 <p class="font_size_1">暂无标签</p>
                 <?php endif; ?>    
     </section>
+    <?php endif; ?>
 </aside>

@@ -84,13 +84,11 @@
                  <polyline points="12 7 12 12 15 15" />
         </svg>
         <span>
-           <?php
+<?php
 // 获取当前文章的 ID
 $postId = $this->cid;
-
 // 获取最后更新时间
 $lastModifiedTime = get_last_modified_time($postId);
-
 // 显示最后更新时间
 if ($lastModifiedTime) {
     echo ' 最后更新时间：' . htmlspecialchars($lastModifiedTime) . ' ';
@@ -102,5 +100,13 @@ if ($lastModifiedTime) {
 </article>
 <div class="disqus-container">
 <?php $this->options->twikoo() ?>
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
 </div>
 <?php $this->need('footer.php'); ?>

@@ -5,24 +5,6 @@ function themeConfig($form) {
     $form->addInput($logoUrl);
     $icoUrl = new Typecho_Widget_Helper_Form_Element_Text('icoUrl', NULL, NULL, _t('站点 Favicon 地址'));
     $form->addInput($icoUrl);
-    $archiveurl = new Typecho_Widget_Helper_Form_Element_Text('archiveurl', NULL, NULL, _t('归档页面地址'), _t('归档页面地址'));
-    $form->addInput($archiveurl);
-    $linksurl = new Typecho_Widget_Helper_Form_Element_Text('linksurl', NULL, NULL, _t('链接页面地址'), _t('链接页面地址'));
-    $form->addInput($linksurl);
-    $abouturl = new Typecho_Widget_Helper_Form_Element_Text('abouturl', NULL, NULL, _t('关于页面地址'), _t('关于页面地址'));
-    $form->addInput($abouturl);
-    $addsns = new Typecho_Widget_Helper_Form_Element_Textarea('addsns', NULL, NULL, _t('自定义联系方式'), _t('头像下方的联系方式,具体使用查看使用文档'));
-    $form->addInput($addsns);
-    $addmenu = new Typecho_Widget_Helper_Form_Element_Textarea('addmenu', NULL, NULL, _t('自定义菜单'), _t('具体查看使用文档'));
-    $form->addInput($addmenu);
-    $showgd = new Typecho_Widget_Helper_Form_Element_Radio('showgd',
-    array('0'=> _t('否'), '1'=> _t('是')),
-    '0', _t('是否在侧边栏显示按日期归档'), _t('选择“是”将展示。'));
-    $form->addInput($showgd);
-    $showmod = new Typecho_Widget_Helper_Form_Element_Radio('showmod',
-    array('0'=> _t('否'), '1'=> _t('是')),
-    '0', _t('是否使用MOD风格'), _t('选择“是”将展示。'));
-    $form->addInput($showmod);
     $instagramurl = new Typecho_Widget_Helper_Form_Element_Text('instagramurl', NULL, NULL, _t('Instagram'), _t('会在个人信息显示'));
     $form->addInput($instagramurl);
     $telegramurl = new Typecho_Widget_Helper_Form_Element_Text('telegramurl', NULL, NULL, _t('电报'), _t('会在个人信息显示'));
@@ -33,7 +15,19 @@ function themeConfig($form) {
     $form->addInput($twitterurl);
     $mastodonurl = new Typecho_Widget_Helper_Form_Element_Text('mastodonurl', NULL, NULL, _t('mastodon'), _t('会在个人信息显示'));
     $form->addInput($mastodonurl);
-    $cnavatar = new Typecho_Widget_Helper_Form_Element_Text('cnavatar', NULL, 'https://cravatar.cn/avatar/', _t('Gravatar镜像'), _t('默认https://cravatar.cn/avatar/,建议保持默认'));
+    $sidebarBlock = new \Typecho\Widget\Helper\Form\Element\Checkbox(
+        'sidebarBlock',
+        [   
+            'ShowSearch' => _t('显示搜索'),
+            'ShowGD'    => _t('显示日期归档'),
+            'ShowFL'    => _t('显示全部分类'),
+            'ShowTags'  => _t('显示标签'),
+        ],
+        ['ShowSearch', 'ShowGD', 'ShowFL', 'ShowTags'],
+        _t('侧边栏显示')
+    );
+    $form->addInput($sidebarBlock->multiMode());
+    $cnavatar = new Typecho_Widget_Helper_Form_Element_Text('cnavatar', NULL, NULL, _t('Gravatar镜像'), _t('默认https://cravatar.cn/avatar/,建议保持默认'));
     $form->addInput($cnavatar);
     $imgurl = new Typecho_Widget_Helper_Form_Element_Text('imgurl', NULL, NULL, _t('分类图片目录'), _t('在目录下放入对应分类mid的jpg图片'));
     $form->addInput($imgurl);
@@ -43,6 +37,12 @@ function themeConfig($form) {
     $form->addInput($addhead);
     $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('Footer代码'), _t('在footer中插入代码支持HTML'));
     $form->addInput($tongji);
+    $addsns = new Typecho_Widget_Helper_Form_Element_Textarea('addsns', NULL, NULL, _t('自定义社交联系方式'), _t('头像下方的社交联系方式,具体使用查看使用文档'));
+    $form->addInput($addsns);
+    $showmod = new Typecho_Widget_Helper_Form_Element_Radio('showmod',
+    array('0'=> _t('否'), '1'=> _t('是')),
+    '0', _t('是否使用MOD风格'), _t('选择“是”将展示。'));
+    $form->addInput($showmod);
 } 
 
 // 自定义字段
@@ -80,6 +80,7 @@ function img_postthumb($cid) {
         return "";  // 没有匹配到图片URL，返回空字符串
     }
 }
+
 //文章目录功能-给文章内标题加上id+超链接新窗口打开
 function addHeaderLinks($text) {
     return preg_replace_callback('/<h([1-6])>(.*?)<\/h\1>/', function ($matches) {
@@ -89,6 +90,7 @@ function addHeaderLinks($text) {
         return sprintf('<h%s id="%s"><a href="#%s" title="%s">%s</a></h%s>', $level, $id, $id, $title, $title, $level);
     }, preg_replace('/<a(?! href="#)(.*?)>/', '<a$1 target="_blank">', $text));
 }
+
 //文章最后修改时间
 function get_last_modified_time($postId) {
     // 获取数据库对象
@@ -100,10 +102,8 @@ function get_last_modified_time($postId) {
                 ->from($prefix . 'contents')
                 ->where('cid = ?', $postId)
                 ->limit(1);
-
     // 执行查询
     $row = $db->fetchRow($query);
-
     // 检查是否有结果
     if ($row) {
         // 返回格式化后的时间

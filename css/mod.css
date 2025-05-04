@@ -2995,10 +2995,6 @@ html ::-webkit-scrollbar-thumb:hover {
     margin-top: 10px
 }
 
-#dark-mode-toggle {
-    gap: 30px
-}
-
 .menu {
     list-style: none;
     flex-direction: column;

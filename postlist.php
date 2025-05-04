@@ -1,4 +1,3 @@
-
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <main class="main full-width">
     <section class="article-list">
