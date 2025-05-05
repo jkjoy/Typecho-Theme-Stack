@@ -32,9 +32,15 @@
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9" /><polyline points="12 7 12 12 15 15" /></svg>
             <time class="article-time--reading">
-            <?php $content = $this->content; ?>阅读时长
+            <?php $content = $this->content; ?>阅读时长≈
             <?php $readingTime = getReadingTime($content);?>
             <?php echo isset($readingTime) ? $readingTime . '分钟' : '未知'; ?>
+            </time>
+        </div>
+        <div>
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--views">
+            浏览量 <?php get_post_view($this) ?>
             </time>
         </div>
     </footer> 
@@ -66,11 +72,17 @@
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9" /><polyline points="12 7 12 12 15 15" /></svg>
                 <time class="article-time--reading">
-                <?php $content = $this->content; ?>阅读时长
+                <?php $content = $this->content; ?>阅读时长≈
                 <?php $readingTime = getReadingTime($content);?>
                 <?php echo isset($readingTime) ? $readingTime . '分钟' : '未知'; ?>
                 </time>
             </div>
+            <div>
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--views">
+            浏览量 <?php get_post_view($this) ?>
+            </time>
+        </div>            
     </footer>  
 </div>
 </header>
@@ -90,4 +102,4 @@
                     'nextClass' => 'hidden' // “后一页”按钮的CSS类
                 )
             );
-        ?>
+?>

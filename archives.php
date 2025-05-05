@@ -10,19 +10,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 <main class="main full-width">
     <header>
-        <h2 class="section-title">Categories</h2>
+        <h2 class="section-title">全部分类</h2>
         <div class="subsection-list">
             <div class="article-list--tile">
             <?php $this->widget('Widget_Metas_Category_List')->to($categories); ?>
-    <?php while($categories->next()): ?>
-    <?php
-    // 获取分类 ID
-    $categoryId = $categories->mid;
-    // 获取主题URL
-    $imgUrl = $this->options->imgurl;
-    // 为每个分类生成图片地址
-    $categoryImage = $imgUrl . '/' . $categoryId . '.jpg';
-    ?>
+            <?php while($categories->next()): ?>
+            <?php $categoryId = $categories->mid; $imgUrl = $this->options->imgurl; $categoryImage = $imgUrl . '/' . $categoryId . '.jpg';?>
     <article class="has-image">
         <a href="<?php $categories->permalink(); ?>">
             <div class="article-image">
