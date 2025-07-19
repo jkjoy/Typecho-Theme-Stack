@@ -1,21 +1,37 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeConfig($form) {
-    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点 LOGO 地址'));
+    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点 LOGO 地址'), _t('显示为个人头像'));
     $form->addInput($logoUrl);
-    $icoUrl = new Typecho_Widget_Helper_Form_Element_Text('icoUrl', NULL, NULL, _t('站点 Favicon 地址'));
+    $icoUrl = new Typecho_Widget_Helper_Form_Element_Text('icoUrl', NULL, NULL, _t('站点 Favicon 地址'), _t('显示为浏览器标签图标'));
     $form->addInput($icoUrl);
-    $instagramurl = new Typecho_Widget_Helper_Form_Element_Text('instagramurl', NULL, NULL, _t('Instagram'), _t('会在个人信息显示'));
+    $instagramurl = new Typecho_Widget_Helper_Form_Element_Text('instagramurl', NULL, NULL, _t('Instagram'), _t('Ins'));
     $form->addInput($instagramurl);
-    $telegramurl = new Typecho_Widget_Helper_Form_Element_Text('telegramurl', NULL, NULL, _t('电报'), _t('会在个人信息显示'));
+    $telegramurl = new Typecho_Widget_Helper_Form_Element_Text('telegramurl', NULL, NULL, _t('Telegram'), _t('也就是电报'));
     $form->addInput($telegramurl);
-    $githuburl = new Typecho_Widget_Helper_Form_Element_Text('githuburl', NULL, NULL, _t('github'), _t('会在个人信息显示'));
+    $githuburl = new Typecho_Widget_Helper_Form_Element_Text('githuburl', NULL, NULL, _t('GitHub'), _t('全球最大同性交友社区Gayhub'));
     $form->addInput($githuburl);
-    $twitterurl = new Typecho_Widget_Helper_Form_Element_Text('twitterurl', NULL, NULL, _t('twitter'), _t('会在个人信息显示'));
+    $twitterurl = new Typecho_Widget_Helper_Form_Element_Text('twitterurl', NULL, NULL, _t('Twitter'), _t('推特,现在是X'));
     $form->addInput($twitterurl);
-    $mastodonurl = new Typecho_Widget_Helper_Form_Element_Text('mastodonurl', NULL, NULL, _t('mastodon'), _t('会在个人信息显示'));
+    $mastodonurl = new Typecho_Widget_Helper_Form_Element_Text('mastodonurl', NULL, NULL, _t('Mastodon'), _t('长毛象'));
     $form->addInput($mastodonurl);
-    $sidebarBlock = new \Typecho\Widget\Helper\Form\Element\Checkbox(
+    $cnavatar = new Typecho_Widget_Helper_Form_Element_Text('cnavatar', NULL, NULL, _t('Gravatar镜像'), _t('默认https://cravatar.cn/avatar/,建议保持默认'));
+    $form->addInput($cnavatar);
+    $imgurl = new Typecho_Widget_Helper_Form_Element_Text('imgurl', NULL, NULL, _t('分类图片路径'), _t('在该路径下放入对应分类mid的jpg图片,可以为相对路径或者url地址'));
+    $form->addInput($imgurl);
+    $twikoo = new Typecho_Widget_Helper_Form_Element_Textarea('twikoo', NULL, NULL, _t('使用第三方评论'), _t('不填写则不显示'));
+    $form->addInput($twikoo);
+    $addhead = new Typecho_Widget_Helper_Form_Element_Textarea('addhead', NULL, NULL, _t('Header代码'), _t('在head标签中插入代码,支持HTML'));
+    $form->addInput($addhead);
+    $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('Footer代码'), _t('在页脚中插入代码支持HTML'));
+    $form->addInput($tongji);
+    $addsns = new Typecho_Widget_Helper_Form_Element_Textarea('addsns', NULL, NULL, _t('自定义社交联系方式'), _t('头像下方的社交联系方式,具体使用查看使用文档'));
+    $form->addInput($addsns);
+    $showmod = new Typecho_Widget_Helper_Form_Element_Radio('showmod',
+    array('0'=> _t('否'), '1'=> _t('是')),
+    '0', _t('是否使用MOD风格'), _t('选择“是”将展示。'));
+    $form->addInput($showmod);
+        $sidebarBlock = new \Typecho\Widget\Helper\Form\Element\Checkbox(
         'sidebarBlock',
         [   
             'ShowSearch' => _t('显示搜索'),
@@ -27,22 +43,6 @@ function themeConfig($form) {
         _t('侧边栏显示')
     );
     $form->addInput($sidebarBlock->multiMode());
-    $cnavatar = new Typecho_Widget_Helper_Form_Element_Text('cnavatar', NULL, NULL, _t('Gravatar镜像'), _t('默认https://cravatar.cn/avatar/,建议保持默认'));
-    $form->addInput($cnavatar);
-    $imgurl = new Typecho_Widget_Helper_Form_Element_Text('imgurl', NULL, NULL, _t('分类图片目录'), _t('在目录下放入对应分类mid的jpg图片'));
-    $form->addInput($imgurl);
-    $twikoo = new Typecho_Widget_Helper_Form_Element_Textarea('twikoo', NULL, NULL, _t('使用第三方评论'), _t('不填写则不显示'));
-    $form->addInput($twikoo);
-    $addhead = new Typecho_Widget_Helper_Form_Element_Textarea('addhead', NULL, NULL, _t('Header代码'), _t('在head中插入代码,支持HTML'));
-    $form->addInput($addhead);
-    $tongji = new Typecho_Widget_Helper_Form_Element_Textarea('tongji', NULL, NULL, _t('Footer代码'), _t('在footer中插入代码支持HTML'));
-    $form->addInput($tongji);
-    $addsns = new Typecho_Widget_Helper_Form_Element_Textarea('addsns', NULL, NULL, _t('自定义社交联系方式'), _t('头像下方的社交联系方式,具体使用查看使用文档'));
-    $form->addInput($addsns);
-    $showmod = new Typecho_Widget_Helper_Form_Element_Radio('showmod',
-    array('0'=> _t('否'), '1'=> _t('是')),
-    '0', _t('是否使用MOD风格'), _t('选择“是”将展示。'));
-    $form->addInput($showmod);
 } 
 
 // 自定义字段
@@ -127,37 +127,6 @@ function getReadingTime($text, $wordsPerMinute = 500) {
     return $readingTime;
 }
 
-/*
-* 文章浏览数统计
-*/
-function get_post_view($archive) {
-    $cid = $archive->cid;
-    $db = Typecho_Db::get();
-    $prefix = $db->getPrefix();
-    if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
-        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
-        echo 0;
-        return;
-    }
-    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
-    if ($archive->is('single')) {
-        $views = Typecho_Cookie::get('extend_contents_views');
-        if (empty($views)) {
-            $views = array();
-        } else {
-            $views = explode(',', $views);
-        }
-        if (!in_array($cid, $views)) {
-            $db->query($db->update('table.contents')->rows(array('views' => (int)$row['views'] + 1))->where('cid = ?', $cid));
-            array_push($views, $cid);
-            $views = implode(',', $views);
-            Typecho_Cookie::set('extend_contents_views', $views); //记录查看cookie
-            
-        }
-    }
-    echo $row['views'];
-}
-
 /**
 * 页面加载时间
 */
@@ -179,23 +148,58 @@ function timer_start() {
     }
     return $r;
     }
-    
-/***
- * 在线状态
- */
-function get_last_login($user){
-    $user   = '1'; 
-    $now    = time();
-    $db     = Typecho_Db::get();
-    $prefix = $db->getPrefix();
-    $row = $db->fetchRow($db->select('activated')->from('table.users')->where('uid = ?', $user));
-    if ($row) {
-        echo Typecho_I18n::dateWord($row['activated'], $now);
-    } else {
-        echo '博主一直在这里';
-    }
-}
 
+/***
+ * 生成文章目录
+ * @param string $content 文章内容
+ */
+function generate_toc($content) {
+    $toc = '<aside class="sidebar right-sidebar sticky">
+        <section class="widget archives">
+            <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z"/>
+                    <line x1="5" y1="9" x2="19" y2="9" />
+                    <line x1="5" y1="15" x2="19" y2="15" />
+                    <line x1="11" y1="4" x2="7" y2="20" />
+                    <line x1="17" y1="4" x2="13" y2="20" />
+                </svg>
+            </div>
+            <h2 class="widget-title section-title">文章目录</h2>
+            <div class="widget--toc"><nav id="TableOfContents">';
+    // 初始化变量
+    $has_toc = false;
+    // 使用正则表达式提取标题
+    if (preg_match_all('/<h([1-6])>(.*?)<\/h\1>/', $content, $matches, PREG_SET_ORDER)) {
+        $current_level = 0;
+        $last_level = 0;
+        foreach ($matches as $match) {
+            $level = intval($match[1]);
+            $title = strip_tags($match[2]);
+            $id = $title; // 保留标题原有格式
+            if ($level > $current_level) {
+                $toc.= '<ol>';  
+            } elseif ($level < $current_level) {
+                    $toc.= str_repeat('</ol>', $current_level - $level);
+            }
+            $toc.= '<li><a href="#'. htmlspecialchars($id). '">'. htmlspecialchars($title). '</a>';
+            if ($level <= $current_level) {
+                if ($current_level > $last_level) {
+                $toc.= '</li>';
+            }
+            }
+            $last_level = $current_level;
+            $current_level = $level;
+            $has_toc = true;
+        }
+        // 关闭所有打开的列表标签
+        if ($current_level > 0) {
+            $toc.= str_repeat('</ol>', $current_level );
+        }
+    }
+    $toc.= '</nav></div></section></aside>';
+    return $has_toc? $toc : '';
+}
 /**
  * Typecho后台附件增强：图片预览、批量插入、保留官方删除按钮与逻辑
  * @author jkjoy

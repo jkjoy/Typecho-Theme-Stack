@@ -39,15 +39,9 @@
 </article>
 <!-- 如果设置了第三方评论系统则使用第三方评论 -->
 <?php if($this->allow('comment')): ?>
-    <?php if($this->options->twikoo): ?> 
-    <div class="comments-container">
-    <?php $this->options->twikoo() ?>
-    </div> 
-    <?php else: ?>
-    <div class="comments-container">
-        <?php $this->need('comments.php'); ?>
-    </div>
-    <?php endif; ?>
+<div class="comments-container">
+<?php $this->options->twikoo() ?>
+</div> 
 <?php endif; ?>
 <style>
     .comments-container {

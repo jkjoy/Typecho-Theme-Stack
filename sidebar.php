@@ -58,8 +58,7 @@ $sidebarBlock = !empty($this->options->sidebarBlock) ? (array)$this->options->si
                     <a class="font_size_1" target="<?php $this->options->sidebarLinkOpen(); ?>" data-toggle="tooltip" data-placement="top" href="<?php $tags->permalink(); ?>" rel="tag" title="<?php $tags->count(); ?> 篇文章"><?php $tags->name(); ?></a>
                 <?php endwhile; ?>
             </div>
-                <?php else: ?>
-                <p class="font_size_1">暂无标签</p>
+                <?php else: ?> 
                 <?php endif; ?>    
     </section>
     <?php endif; ?>

@@ -16,17 +16,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
             <?php $this->widget('Widget_Metas_Category_List')->to($categories); ?>
             <?php while($categories->next()): ?>
             <?php $categoryId = $categories->mid; $imgUrl = $this->options->imgurl; $categoryImage = $imgUrl . '/' . $categoryId . '.jpg';?>
-    <article class="has-image">
-        <a href="<?php $categories->permalink(); ?>">
-            <div class="article-image">
-                <img src="<?php echo $categoryImage; ?>" loading="lazy" alt="<?php $categories->name(); ?>">
-            </div>
-            <div class="article-details">
-                <h2 class="article-title"><?php $categories->name(); ?></h2>
-            </div>
-        </a>
-    </article>
-    <?php endwhile; ?>
+                <article class="has-image">
+                    <a href="<?php $categories->permalink(); ?>">
+                        <div class="article-image"><img src="<?php echo $categoryImage; ?>" loading="lazy" alt="<?php $categories->name(); ?>"></div>
+                        <div class="article-details"><h2 class="article-title"><?php $categories->name(); ?></h2></div>
+                    </a>
+                </article>
+            <?php endwhile; ?>
             </div>
         </div>    
     </header>
