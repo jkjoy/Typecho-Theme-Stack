@@ -39,13 +39,21 @@
 </article>
 <!-- 如果设置了第三方评论系统则使用第三方评论 -->
 <?php if($this->allow('comment')): ?>
-<div class="comments-container">
-<?php $this->options->twikoo() ?>
-</div> 
+    <?php if($this->options->twikoo): ?> 
+    <div class="comments-container">
+    <?php $this->options->twikoo() ?>
+    </div> 
+    <?php else: ?>
+    <div class="comments-container">
+        <?php $this->need('comments.php'); ?>
+    </div>
+    <?php endif; ?>
+<?php endif; ?>
 <?php endif; ?>
 <style>
     .comments-container {
         background-color: var(--card-background);
+        color: var(--card-text-color-main);
         border-radius: var(--card-border-radius);
         box-shadow: var(--shadow-l1);
         padding: var(--card-padding);
