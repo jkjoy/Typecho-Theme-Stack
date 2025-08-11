@@ -87,8 +87,11 @@ function addHeaderLinks($text) {
         $level = $matches[1];
         $title = $matches[2];
         $id = htmlspecialchars(strip_tags($title), ENT_QUOTES, 'UTF-8');
-        return sprintf('<h%s id="%s"><a href="#%s" title="%s">%s</a></h%s>', $level, $id, $id, $title, $title, $level);
-    }, preg_replace('/<a(?! href="#)(.*?)>/', '<a$1 target="_blank">', $text));
+        // title 属性也需要转义
+        $titleAttr = htmlspecialchars(strip_tags($title), ENT_QUOTES, 'UTF-8');
+        // 保持标题内容原样，不进行额外转义
+        return sprintf('<h%s id="%s"><a href="#%s" title="%s">%s</a></h%s>', $level, $id, $id, $titleAttr, $title, $level);
+    }, preg_replace('/<a(?! href="#")(.*?)>/', '<a$1 target="_blank">', $text));
 }
 
 //文章最后修改时间
