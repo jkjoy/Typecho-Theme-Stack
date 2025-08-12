@@ -14,6 +14,7 @@
 </footer>
 </main>
 </div>
+<?php $this->footer(); ?>
 <script type="text/javascript" src="<?php $this->options->themeUrl('js/main.js'); ?>" defer></script>
 <script src="<?php $this->options->themeUrl('js/photoswipe.min.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('js/photoswipe-ui-default.min.js'); ?>"></script>
